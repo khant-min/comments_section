@@ -6,12 +6,13 @@ import { useState, useEffect } from "react";
 
 const App = () => {
   const [data, setData] = useState([]);
-
+  console.log(data)
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         const res = await api.get("/comments");
         setData(res.data);
+
       } catch (err) {
         console.log(err);
       }
@@ -22,17 +23,19 @@ const App = () => {
 
   return (
     <div className="flex flex-col items-center justify-between my-14">
-      {data.length && (
+      {data.length > 0 ?  (
         <>
           <Comments
-          // name={data[0].user.username}
-          // postDate={data[0].createdAt}
-          // content={data[0].content}
-          // vote={data[0].score}
+          name={data[0].user.username}
+          postDate={data[0].createdAt}
+          content={data[0].content}
+          vote={data[0].score}
           />
-          {console.log(data)}
+          
           <AddComment />
         </>
+      ): (
+        <p>data is fetching ...</p>
       )}
     </div>
   );
