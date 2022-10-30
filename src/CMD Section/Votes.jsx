@@ -3,13 +3,13 @@ import minus from "../../images/icon-minus.svg";
 import { useState } from "react";
 
 const Votes = ({ vote }) => {
-  const [count, setCount] = useState(0);
-  console.log(vote);
+  const [newVote, setNewVote] = useState(vote);
 
-  const decrement = () => setCount(previousCount => previousCount - 1);
-  const increment = () => setCount(previousCount => previousCount + 1);
+  const decrement = () => newVote > vote && setNewVote(newVote - 1);
+  const increment = () => setNewVote(vote + 1);
+
   return (
-    <div className="bg-gray-100 rounded flex flex-col items-center justify-between">
+    <div className="bg-gray-100 rounded flex flex-col items-center justify-between py-4 px-2">
       <button>
         <img
           src={plus}
@@ -17,7 +17,7 @@ const Votes = ({ vote }) => {
           className="cursor-pointer rounded hover:bg-gray-200 p-2"
         />
       </button>
-      <span className="px-4 text-blue-500">{vote}</span>
+      <span>{newVote}</span>
       <button>
         <img
           src={minus}

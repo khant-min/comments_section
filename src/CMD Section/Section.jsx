@@ -1,13 +1,12 @@
-import test from "../../images/avatars/image-amyrobson.png";
 import reply from "../../images/icon-reply.svg";
 
-const Section = ({ name, content, postDate }) => {
+const Section = ({ name, content, postDate, img }) => {
   console.log();
   return (
-    <section className="max-w-xl p-4">
+    <section className="max-w-2xl p-6">
       <div className="flex items-center justify-between pb-3">
         <div className="flex items-center justify-evenly">
-          <img src={test} className="w-8" />
+          <img src={img} className="w-8" />
           <span className="px-4">{name}</span>
           <span className="px-4">{postDate}</span>
         </div>

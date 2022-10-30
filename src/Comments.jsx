@@ -1,10 +1,11 @@
 import CommentBox from "./CMD Section/CommentBox";
+import Delete from "./Delete";
 
-const Comments = () => {
+const Comments = ({ ...props }) => {
   return (
-    <main>
-      <CommentBox />
-    </main>
+    <div className="m-4">
+      <CommentBox {...props} />
+    </div>
   );
 };
 
